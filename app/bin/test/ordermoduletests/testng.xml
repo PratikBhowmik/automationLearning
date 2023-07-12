@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke suite">
+    <test name="Order module tests">
+        <classes>
+            <!-- <class name = "ordermoduletests.Tests.Test_case01"/> -->
+            <class name = "ordermoduletests.Tests.Test_case02"/>
+            <!-- <class name = "ordermoduletests.Tests.Test_case03"/> -->
+        </classes>
+    </test>
+</suite> 
