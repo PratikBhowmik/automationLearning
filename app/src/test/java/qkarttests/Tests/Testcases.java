@@ -1,9 +1,9 @@
-package ordermoduletests.Tests;
+package qkarttests.Tests;
 
 import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -17,37 +17,34 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import ordermoduletests.DriverSingleton;
-import ordermoduletests.Pages.Loginpage;
-import ordermoduletests.Pages.Sellerdash;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import qkarttests.DriverSingleton;
+import qkarttests.Pages.Loginpage;
+import qkarttests.Pages.Register;
 
-public class Test_case01 {
+public class Testcases {
 
-    WebDriver driver_var;
+    WebDriver driver;
 
     @BeforeSuite
     public void setup() {
-
-        DriverSingleton ds_obj = DriverSingleton.getInstance();
-        driver_var = ds_obj.getDriver();
+        DriverSingleton.getDriver();
     }
 
     @Test
     public void test_case01() throws InterruptedException {
-        Sellerdash sellerdash_obj = new Sellerdash(driver_var);
-        Loginpage loginpage_obj = new Loginpage(driver_var);
-        sellerdash_obj.navigatetosellerdash();
-        Thread.sleep(3000);
-        loginpage_obj.enter_phonenumber("9436582726");
-        loginpage_obj.click_sendotp();
-        Thread.sleep(3000);
-        loginpage_obj.enter_otp("0000");
-        loginpage_obj.click_verifyotp();
+
+        Loginpage.login("Pratik", "Bhowmik");
+    }
+
+    @Test
+    public void test_case02() {
+        Register.registration(null, null, null, false);
+        Register.register();
     }
 
     @AfterSuite
     public void teardown() {
-        driver_var.close();
+        driver.close();
     }
-
 }
