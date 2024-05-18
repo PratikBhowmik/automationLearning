@@ -6,18 +6,18 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class Loginpage {
-    static WebDriver driver;
+    WebDriver driver;
     @FindBy(id = "username")
-    static WebElement userName;
+    WebElement userName;
     @FindBy(id = "password")
-    static WebElement passWord;
+    WebElement passWord;
     @FindBy(xpath = "//button[text() = 'Login to QKart']")
-    static WebElement loginButton;
+    WebElement loginButton;
     public Loginpage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-    public static void login(String username, String password) {
+    public void login(String username, String password) {
         userName.sendKeys(username);
         passWord.sendKeys(password);
         loginButton.click();

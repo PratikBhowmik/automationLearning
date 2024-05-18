@@ -9,23 +9,24 @@ import org.openqa.selenium.support.PageFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Register {
-    static WebDriver driver;
-    static String url = "https://crio-qkart-frontend-qa.vercel.app/register";
+    WebDriver driver;
+    String url = "https://crio-qkart-frontend-qa.vercel.app/register";
+
     @FindBy(id = "username")
-    static WebElement emailfield;
+    WebElement emailfield;
     @FindBy(id = "password")
-    static WebElement password;
+    WebElement password;
     @FindBy(id = "confirmPassword")
-    static WebElement confirmpassword;
-    @FindBy(xpath = "button[text()='Register Now']")
-    static WebElement registernowButton;
+    WebElement confirmpassword;
+    @FindBy(xpath = "//button[text()='Register Now']")
+    WebElement registernowButton;
 
     public Register(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public static void registration(String username, String password, String confirmPass, boolean dynamicUser) {
+    public static void registration(String username, String password, String confirmPass, Boolean dynamicUser) {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         String test_data_username;
         if (dynamicUser)
@@ -34,11 +35,11 @@ public class Register {
             test_data_username = username;
     }
 
-    public static void register() {
+    public void register() {
         registernowButton.click();
     }
 
-    public static boolean isregistrationPagedisplayed() {
+    public Boolean isregistrationPagedisplayed() {
         return driver.getCurrentUrl().equalsIgnoreCase(url);
     }
 }
