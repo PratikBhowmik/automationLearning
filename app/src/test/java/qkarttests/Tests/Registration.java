@@ -35,6 +35,7 @@ public class Registration {
     @BeforeSuite
     public void setup() {
         DriverSingleton ds = DriverSingleton.getInstance();
+        
         ds.getDriver();
     }
 
