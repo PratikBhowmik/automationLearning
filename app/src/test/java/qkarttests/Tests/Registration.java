@@ -1,5 +1,6 @@
 package qkarttests.Tests;
 
+import java.util.*;
 import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,21 +23,31 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentReporter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import qkarttests.DriverSingleton;
+import qkarttests.ExtentReportManager;
 import qkarttests.Pages.Loginpage;
 import qkarttests.Pages.Register;
 
 public class Registration {
-
     WebDriver driver;
+    ExtentTest test;
+    SoftAssert assertvar;
+    String url = "https://crio-qkart-frontend-qa.vercel.app/register";
 
     @BeforeSuite
     public void setup() {
-        DriverSingleton ds = DriverSingleton.getInstance();
-        
-        ds.getDriver();
+        WebDriverManager.edgedriver().setup();
+        driver = new EdgeDriver();
+        driver.manage().window().maximize();
+        test =  ExtentReportManager.getInstance().createTest("My test case");
     }
 
     @BeforeTest
@@ -46,12 +57,13 @@ public class Registration {
     //Validation of user successful registration
     @Test
     public void test_case01() {
-        System.out.println("test 1");
+        Register reg = new Register(driver);
+        assertvar.assertTrue(reg.registration("ABC", "DEF", "IJK", true));
+        test.log(Status.PASS, "Registered successfully");
     }
 
     @Test
     public void test_case02() {
-        System.out.println("test 2");
     }
 
     @Test
@@ -77,5 +89,6 @@ public class Registration {
     @AfterSuite
     public void teardown() {
         driver.quit();
+        ExtentReportManager.getInstance().flush();
     }
 }

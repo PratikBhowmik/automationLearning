@@ -11,11 +11,13 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Register {
     WebDriver driver;
     String url = "https://crio-qkart-frontend-qa.vercel.app/register";
+    String finalUrl = "https://crio-qkart-frontend-qa.vercel.app/";
+
 
     @FindBy(id = "username")
     WebElement emailfield;
     @FindBy(id = "password")
-    WebElement password;
+    WebElement passwordField;
     @FindBy(id = "confirmPassword")
     WebElement confirmpassword;
     @FindBy(xpath = "//button[text()='Register Now']")
@@ -26,20 +28,19 @@ public class Register {
         PageFactory.initElements(driver, this);
     }
 
-    public static void registration(String username, String password, String confirmPass, Boolean dynamicUser) {
+    public Boolean registration(String username, String password, String confirmPass, Boolean dynamicUser) {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         String test_data_username;
         if (dynamicUser)
             test_data_username = username + String.valueOf(timestamp.getTime());
         else
             test_data_username = username;
-    }
-
-    public void register() {
+        driver.get(url);
+        emailfield.sendKeys(username);
+        passwordField.sendKeys(password);
+        confirmpassword.sendKeys(confirmPass);
         registernowButton.click();
-    }
-
-    public Boolean isregistrationPagedisplayed() {
-        return driver.getCurrentUrl().equalsIgnoreCase(url);
+        if (driver.getCurrentUrl().equals(finalUrl)) return true;
+        return false;
     }
 }
