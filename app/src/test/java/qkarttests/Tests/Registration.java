@@ -46,6 +46,7 @@ public class Registration {
     public void setup() {
         WebDriverManager.edgedriver().setup();
         driver = new EdgeDriver();
+        assertvar = new SoftAssert();
         driver.manage().window().maximize();
         test =  ExtentReportManager.getInstance().createTest("My test case");
     }
@@ -59,11 +60,11 @@ public class Registration {
     public void test_case01() {
         Register reg = new Register(driver);
         assertvar.assertTrue(reg.registration("ABC", "DEF", "IJK", true));
-        test.log(Status.PASS, "Registered successfully");
     }
 
     @Test
     public void test_case02() {
+
     }
 
     @Test

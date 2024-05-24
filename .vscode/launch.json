@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Bookanartist",
+            "request": "launch",
+            "mainClass": "qkarttests.Tests.Bookanartist",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Rotatearray",
+            "request": "launch",
+            "mainClass": "automation_shopdeck.Rotatearray",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

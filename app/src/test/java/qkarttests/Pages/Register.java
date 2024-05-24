@@ -1,5 +1,4 @@
 package qkarttests.Pages;
-
 import java.sql.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,6 +21,7 @@ public class Register {
     WebElement confirmpassword;
     @FindBy(xpath = "//button[text()='Register Now']")
     WebElement registernowButton;
+    
 
     public Register(WebDriver driver) {
         this.driver = driver;
