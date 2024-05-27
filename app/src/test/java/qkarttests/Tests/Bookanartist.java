@@ -27,6 +27,8 @@ public class Bookanartist {
         //Script will stop in b/w you have to enter solved in the console to continue the script
         //All the steps are written below
 
+        
+
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
@@ -67,6 +69,7 @@ public class Bookanartist {
 
         // similiarele.get(0).click();
 
+        //Screen 1
         driver.findElement(By.id("project_name")).sendKeys("Public Window Mural - Canada");
         driver.findElement(By.xpath("//span[text()='Mural/Graffiti']")).click();
 
@@ -92,19 +95,28 @@ public class Bookanartist {
         driver.findElement(By.xpath("//span[text() = 'Continue']")).click();
 
 
+        //Screen 2
         driver.findElement(By.xpath("//input[@value='No idea']")).click();
         driver.findElement(By.id("job_description")).sendKeys("We are seeking an experienced mural artist to create\n" + //
                         "a captivating mural for a public window space measuring 5ft x 5ft in Canada.");
         driver.findElement(By.xpath("//span[text()='Portrait']")).click();
+
+        Thread.sleep(3000);
+
+        String filepath = "/Users/pratikbhowmik/Downloads/dreams.png";
+        driver.findElement(By.xpath("//button[@title = 'Attach file']")).sendKeys(filepath);
+
+
         driver.findElement(By.cssSelector(".ant-btn.css-6rzz9k.ant-btn-primary.custom-btn.custom-btn__long.btn__solid-primary")).click();
 
 
-        driver.findElement(By.id("budget")).sendKeys("1000");
-        driver.findElement(By.id("currency")).sendKeys("INR");
+        //Screen 3
+        driver.findElement(By.id("budget")).sendKeys("100.50");
+        driver.findElement(By.id("currency")).sendKeys("CAD");
         Thread.sleep(6000);
         List<WebElement> list = driver.findElements(By.xpath("//div[@aria-selected]"));
         for (WebElement webElement : list) {
-            if (webElement.getText().contains("INR")) {
+            if (webElement.getText().contains("CAD")) {
                 webElement.click();
                 break;
             }
@@ -124,7 +136,7 @@ public class Bookanartist {
 
         driver.findElement(By.id("first_name")).sendKeys("Pratik");
         driver.findElement(By.id("last_name")).sendKeys("Bhowmik");
-        driver.findElement(By.id("email")).sendKeys("pratik.bhowmik@gmail.com");
+        driver.findElement(By.id("email")).sendKeys("pratik.bhowmik97@gmail.com");
         driver.findElement(By.id("password")).sendKeys("Patrick@97");
         driver.findElement(By.id("terms_privacy")).click();
 
