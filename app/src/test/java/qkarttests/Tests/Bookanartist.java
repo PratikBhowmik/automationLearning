@@ -89,6 +89,7 @@ public class Bookanartist {
 
         List<WebElement> dates = driver.findElements(By.xpath("//td"));
 
+        //Select 30 date as deadline
         for (WebElement date : dates) {
             if (date.getText().contains("30")) {
                 date.click();
