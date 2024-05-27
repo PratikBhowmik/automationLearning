@@ -82,13 +82,27 @@ public class Bookanartist {
             }
         }
 
-        driver.findElement(By.cssSelector(".ant-btn.css-6rzz9k.ant-btn-default.custom-btn.project-date-custom-btn"))
-                .click();
+        // driver.findElement(By.cssSelector(".ant-btn.css-6rzz9k.ant-btn-default.custom-btn.project-date-custom-btn"))
+        //         .click();
+
+        driver.findElement(By.xpath("//input[@placeholder='On date']")).click();
+
+        List<WebElement> dates = driver.findElements(By.xpath("//td"));
+
+        for (WebElement date : dates) {
+            if (date.getText().contains("30")) {
+                date.click();
+                break;
+            }
+        }
+
+
+
         driver.findElement(
                 By.cssSelector(".ant-btn.css-6rzz9k.ant-btn-primary.custom-btn.custom-btn__long.btn__solid-primary"))
                 .click();
 
-        // Budget details
+        // Budget details screen 4
         Thread.sleep(6000);
         List<WebElement> elements = driver.findElements(
                 By.cssSelector(".ant-radio-button-wrapper.ant-radio-button-wrapper-in-form-item.css-6rzz9k"));
