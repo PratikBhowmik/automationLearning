@@ -36,6 +36,7 @@ public class Bookanartist {
         driver.manage().window().maximize();
         driver.get("https://hireanartist.com.au/post-a-job");
         Thread.sleep(3000);
+
         // driver.findElement(By.cssSelector(".ant-btn.css-6rzz9k.ant-btn-default.custom-btn.custom-btn__regular.btn__outline-secondary")).click();
         // driver.findElement(By.id("email")).sendKeys("impratikbhowmik@gmail.com");
         // driver.findElement(By.id("password")).sendKeys("abc@97");
@@ -75,9 +76,7 @@ public class Bookanartist {
 
         driver.findElement(By.id("width")).sendKeys("5");
         driver.findElement(By.id("height")).sendKeys("5");
-        driver.findElement(By.xpath(
-                "//label[@class = 'ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item pj-measure-category css-6rzz9k']"))
-                .click();
+        driver.findElement(By.xpath("//span[text()='ft.']")).click();
 
         driver.findElement(By.xpath("//input[@placeholder='Search your location...']")).sendKeys("Agartala");
         Thread.sleep(3000);
@@ -118,6 +117,8 @@ public class Bookanartist {
         Thread.sleep(6000);
         List<WebElement> elements = driver.findElements(By.cssSelector(".ant-radio-button-wrapper.ant-radio-button-wrapper-in-form-item.css-6rzz9k"));
         elements.get(1).click();
+
+        driver.findElement(By.xpath("//select//option[@value = 'IN']")).click();
 
         driver.findElement(By.cssSelector(".PhoneInputInput")).sendKeys("8939117490");
 
