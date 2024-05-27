@@ -20,16 +20,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Bookanartist {
     public static void main(String[] args) throws InterruptedException {
 
-        // This is the script for posting a job with user logged in
-        // Please create a dummy account with dummy credentials to see the script
-        // running also email should be verified
-        // Also the captcha automation is not recommended so please solve the captcha
-        // manually to see the script running
-        // I have also included validations
-        // Script will stop in b/w you have to enter solved in the console to continue
-        // the script
-        // All the steps are written below
 
+        
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -37,36 +29,6 @@ public class Bookanartist {
         driver.manage().window().maximize();
         driver.get("https://hireanartist.com.au/post-a-job");
         Thread.sleep(3000);
-
-        // driver.findElement(By.cssSelector(".ant-btn.css-6rzz9k.ant-btn-default.custom-btn.custom-btn__regular.btn__outline-secondary")).click();
-        // driver.findElement(By.id("email")).sendKeys("impratikbhowmik@gmail.com");
-        // driver.findElement(By.id("password")).sendKeys("abc@97");
-
-        // This code is for captcha but
-        // it's not recommended to do automation for captcha,
-        // captcha is designed to prevent automation
-        // please solve the captcha manually
-        // to see the rest of the script running in action please input SOLVED on your
-        // terminal to see the script running
-        // Thread.sleep(6000);
-        // driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@title='reCAPTCHA']")));
-        // Thread.sleep(6000);
-        // driver.findElement(By.cssSelector(".recaptcha-checkbox-border")).click();
-        // driver.switchTo().defaultContent();
-        // Thread.sleep(6000);
-
-        // System.out.println("Please enter SOLVED once captcha is solved manually");
-        // Scanner scan = new Scanner(System.in);
-        // scan.nextLine();
-
-        // driver.findElement(By.xpath("//span[text()='Log in']")).click();
-
-        // Thread.sleep(6000);
-
-        // List<WebElement> similiarele =
-        // driver.findElements(By.cssSelector(".ant-btn.css-6rzz9k.ant-btn-default.custom-btn.custom-btn__regular.btn__solid-tertiary"));
-
-        // similiarele.get(0).click();
 
         // Screen 1
         driver.findElement(By.id("project_name")).sendKeys("Public Window Mural - Canada");
@@ -101,10 +63,11 @@ public class Bookanartist {
 
         Thread.sleep(6000);
 
+
         String filepath = "/Users/pratikbhowmik/Downloads/dreams.png";
         driver.findElement(By.xpath("//button[@title ='Attach file']")).sendKeys(filepath);
-        Thread.sleep(8000);
-        
+        Thread.sleep(6000);
+
         driver.findElement(By.xpath("//span[text()='Continue']")).click();
 
         // Screen 3
