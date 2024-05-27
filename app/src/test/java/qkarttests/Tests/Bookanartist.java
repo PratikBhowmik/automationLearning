@@ -63,7 +63,7 @@ public class Bookanartist {
 
         Thread.sleep(6000);
 
-
+        //Attach the file
         String filepath = "/Users/pratikbhowmik/Downloads/dreams.png";
         driver.findElement(By.xpath("//button[@title ='Attach file']")).sendKeys(filepath);
         Thread.sleep(6000);
