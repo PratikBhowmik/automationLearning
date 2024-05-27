@@ -31,12 +31,14 @@ public class Bookanartist {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+
         driver.manage().window().maximize();
-        driver.get("https://bookanartist.co/");
+        driver.get("https://hireanartist.com.au/post-a-job");
         Thread.sleep(3000);
-        driver.findElement(By.cssSelector(".ant-btn.css-6rzz9k.ant-btn-default.custom-btn.custom-btn__regular.btn__outline-secondary")).click();
-        driver.findElement(By.id("email")).sendKeys("impratikbhowmik97@gmail.com");
-        driver.findElement(By.id("password")).sendKeys("Patrick@97");
+        // driver.findElement(By.cssSelector(".ant-btn.css-6rzz9k.ant-btn-default.custom-btn.custom-btn__regular.btn__outline-secondary")).click();
+        // driver.findElement(By.id("email")).sendKeys("impratikbhowmik@gmail.com");
+        // driver.findElement(By.id("password")).sendKeys("abc@97");
         
 
         // This code is for captcha but 
@@ -52,17 +54,17 @@ public class Bookanartist {
         // Thread.sleep(6000);
 
 
-        System.out.println("Please enter SOLVED once captcha is solved manually");
-        Scanner scan = new Scanner(System.in);
-        scan.nextLine();
+        // System.out.println("Please enter SOLVED once captcha is solved manually");
+        // Scanner scan = new Scanner(System.in);
+        // scan.nextLine();
 
-        driver.findElement(By.xpath("//span[text()='Log in']")).click();
+        // driver.findElement(By.xpath("//span[text()='Log in']")).click();
 
-        Thread.sleep(6000);
+        // Thread.sleep(6000);
 
-        List<WebElement> similiarele = driver.findElements(By.cssSelector(".ant-btn.css-6rzz9k.ant-btn-default.custom-btn.custom-btn__regular.btn__solid-tertiary"));
+        // List<WebElement> similiarele = driver.findElements(By.cssSelector(".ant-btn.css-6rzz9k.ant-btn-default.custom-btn.custom-btn__regular.btn__solid-tertiary"));
 
-        similiarele.get(0).click();
+        // similiarele.get(0).click();
 
         driver.findElement(By.id("project_name")).sendKeys("Public Window Mural - Canada");
         driver.findElement(By.xpath("//span[text()='Mural/Graffiti']")).click();
@@ -116,9 +118,18 @@ public class Bookanartist {
         Thread.sleep(6000);
         List<WebElement> elements = driver.findElements(By.cssSelector(".ant-radio-button-wrapper.ant-radio-button-wrapper-in-form-item.css-6rzz9k"));
         elements.get(1).click();
+
+        driver.findElement(By.cssSelector(".PhoneInputInput")).sendKeys("8939117490");
+
+        driver.findElement(By.id("first_name")).sendKeys("Pratik");
+        driver.findElement(By.id("last_name")).sendKeys("Bhowmik");
+        driver.findElement(By.id("email")).sendKeys("pratik.bhowmik@gmail.com");
+        driver.findElement(By.id("password")).sendKeys("Patrick@97");
         driver.findElement(By.id("terms_privacy")).click();
+
         Thread.sleep(6000);
-        System.out.println("Solve the captcha manually and see the rest of the script");
+
+        System.out.println("Please solve the captcha manually and type solved here");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
 
@@ -128,8 +139,6 @@ public class Bookanartist {
 
         //Validation of thank you message after job is created  
         Assert.assertTrue(driver.findElement(By.id("poj-success-popup-gtm")).isDisplayed());
-
-
-        // driver.quit();
+        driver.quit();
     }
 }
