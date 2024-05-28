@@ -31,10 +31,10 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentReporter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import qkarttests.DriverSingleton;
-import qkarttests.ExtentReportManager;
 import qkarttests.Pages.Loginpage;
 import qkarttests.Pages.Register;
+import qkarttests.resources.DriverSingleton;
+import qkarttests.resources.ExtentReportManager;
 
 public class Registration {
     WebDriver driver;

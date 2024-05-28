@@ -4,6 +4,9 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -18,13 +21,13 @@ import org.testng.Assert;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Bookanartist {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, AWTException {
 
-
-        
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        Robot robot = new Robot();
 
         driver.manage().window().maximize();
         driver.get("https://hireanartist.com.au/post-a-job");
@@ -63,9 +66,21 @@ public class Bookanartist {
 
         Thread.sleep(6000);
 
-        //Attach the file
+        // Attach the file
         String filepath = "/Users/pratikbhowmik/Downloads/dreams.png";
-        driver.findElement(By.xpath("//button[@title ='Attach file']")).sendKeys(filepath);
+        driver.findElement(By.xpath("//button[@title ='Attach file']")).click();
+
+        WebElement fileInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("input[@type = 'file']")));
+
+        // If file input is not directly visible, make it visible
+        if (fileInput != null) {
+            js.executeScript("arguments[0].style.display = 'block';", fileInput);
+            // Provide the path to the file you want to upload
+            fileInput.sendKeys(filepath);
+        } else {
+            System.out.println("File input element not found");
+        }
+
         Thread.sleep(6000);
 
         driver.findElement(By.xpath("//span[text()='Continue']")).click();
@@ -83,21 +98,19 @@ public class Bookanartist {
         }
 
         // driver.findElement(By.cssSelector(".ant-btn.css-6rzz9k.ant-btn-default.custom-btn.project-date-custom-btn"))
-        //         .click();
+        // .click();
 
         driver.findElement(By.xpath("//input[@placeholder='On date']")).click();
 
         List<WebElement> dates = driver.findElements(By.xpath("//td"));
 
-        //Select 30 date as deadline
+        // Select 30 date as deadline
         for (WebElement date : dates) {
             if (date.getText().contains("30")) {
                 date.click();
                 break;
             }
         }
-
-
 
         driver.findElement(
                 By.cssSelector(".ant-btn.css-6rzz9k.ant-btn-primary.custom-btn.custom-btn__long.btn__solid-primary"))
