@@ -17,7 +17,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Bookanartist {
@@ -68,18 +67,27 @@ public class Bookanartist {
 
         // Attach the file
         String filepath = "/Users/pratikbhowmik/Downloads/dreams.png";
-        driver.findElement(By.xpath("//button[@title ='Attach file']")).click();
+        WebElement button = driver.findElement(By.xpath("//button[@title ='Attach file']"));
+        button.click();
 
-        WebElement fileInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("input[@type = 'file']")));
+        // Thread.sleep(8000);
+
+
+        // Screen screen = new Screen();
+        // Pattern pattern = new Pattern(filepath);
+
+        // screen.wait(pattern, 10);
+        // screen.type(filepath);
+
+        // screen.type(Key.ENTER);
+        
+        // WebElement fileInput =
+        // wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("input[@type
+        // = 'file']")));
 
         // If file input is not directly visible, make it visible
-        if (fileInput != null) {
-            js.executeScript("arguments[0].style.display = 'block';", fileInput);
-            // Provide the path to the file you want to upload
-            fileInput.sendKeys(filepath);
-        } else {
-            System.out.println("File input element not found");
-        }
+        // ((JavascriptExecutor) driver).executeScript("arguments[0].style.display='block';", button);
+        // ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('value', '" + filepath + "');", button);
 
         Thread.sleep(6000);
 
