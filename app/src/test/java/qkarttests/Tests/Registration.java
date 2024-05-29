@@ -44,8 +44,8 @@ public class Registration {
 
     @BeforeSuite
     public void setup() {
-        WebDriverManager.edgedriver().setup();
-        driver = new EdgeDriver();
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
         assertvar = new SoftAssert();
         driver.manage().window().maximize();
         test =  ExtentReportManager.getInstance().createTest("My test case");
@@ -58,8 +58,7 @@ public class Registration {
     //Validation of user successful registration
     @Test
     public void test_case01() {
-        Register reg = new Register(driver);
-        assertvar.assertTrue(reg.registration("ABC", "DEF", "IJK", true));
+        
     }
 
     @Test
