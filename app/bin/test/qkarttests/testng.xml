@@ -3,7 +3,7 @@
 <suite name="Regression suite">
     <test name="tests">
         <classes>
-            <class name = "qkarttests.Tests.Testcases"/>
+            <class name = "qkarttests.Pages.IQgateway"/>
         </classes>
     </test>
 </suite> 

@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Iqgateway",
+            "request": "launch",
+            "mainClass": "qkarttests.Pages.Iqgateway",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
             "name": "Bookanartist",
             "request": "launch",
             "mainClass": "qkarttests.Tests.Bookanartist",

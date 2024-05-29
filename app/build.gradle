@@ -47,8 +47,6 @@ application {
     mainClass = 'automation_shopdeck.App'
 }
 
-tasks.named('test') {
-    useTestNG() {
-        suites 'src/test/java/ordermoduletests/testng.xml'
-    }
+test {
+    useTestNG()
 }
