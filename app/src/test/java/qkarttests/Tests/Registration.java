@@ -64,6 +64,7 @@ public class Registration {
 
     @Test
     public void test_case02() {
+        
     }
 
     @Test
