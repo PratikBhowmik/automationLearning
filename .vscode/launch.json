@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MainClass",
+            "request": "launch",
+            "mainClass": "automation_shopdeck.MainClass",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "main",
+            "request": "launch",
+            "mainClass": "automation_shopdeck.main",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "AppmetryProblem",
+            "request": "launch",
+            "mainClass": "automation_shopdeck.AppmetryProblem",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
             "name": "Main",
             "request": "launch",
             "mainClass": "automation_shopdeck.Main",

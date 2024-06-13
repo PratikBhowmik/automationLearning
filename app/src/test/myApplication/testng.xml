@@ -2,8 +2,8 @@
 <suite name="SuiteName">
     <test name="TestName">
         <classes>
-            <class name="com.example.TestClass1"/>
-            <class name="com.example.TestClass2"/>
+            <class name="myApplication.Tests.TestCase1"/>
+            <class name="myApplication.Tests.TestCase2"/>
         </classes>
     </test>
 </suite>
