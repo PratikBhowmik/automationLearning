@@ -11,8 +11,9 @@ public class DriverSingleton {
     private static DriverSingleton instance = null;
 
     private DriverSingleton() {
+
         WebDriverManager.edgedriver().setup();
-        driver = new EdgeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
 
