@@ -6,8 +6,8 @@ public class BackbaseJavaproblem1 {
 
     // Find the 3rd largest number in an array
     // Approaches brute better optimal
-
     // Optimal solution
+    
     public static int function(int[] arr) {
 
         if (arr.length < 3) {

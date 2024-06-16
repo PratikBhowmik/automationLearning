@@ -35,6 +35,7 @@ public class BackbaseFindBrokenImages {
                 }
             } catch (Exception e) {
                 // TODO: handle exception
+                System.out.println("Exception occured");
             }
 
         }

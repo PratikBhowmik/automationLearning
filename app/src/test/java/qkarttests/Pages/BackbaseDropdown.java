@@ -22,13 +22,10 @@ public class BackbaseDropdown {
 
         driver.get(url);
         driver.manage().window().maximize();
-
         js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-
         driver.findElement(By.xpath("//button[@data-tracking-control-name='footer-lang-dropdown_trigger']")).click();
 
         List<WebElement> li = driver.findElements(By.xpath("//li[@role = 'presentation']"));
-
         li.get(4).click();
 
         // for (WebElement elem : li) {
@@ -37,9 +34,7 @@ public class BackbaseDropdown {
         // }
 
         Thread.sleep(3000);
-
         driver.quit();
 
     }
-
 }

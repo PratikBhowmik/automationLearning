@@ -30,9 +30,6 @@ dependencies {
     // https://mvnrepository.com/artifact/com.aventstack/extentreports
     implementation group: 'com.aventstack', name: 'extentreports', version: '5.1.1'
 
-
-
-
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
