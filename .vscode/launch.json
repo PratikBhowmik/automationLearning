@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
+            "mainClass": "myPackage.Pages.Main",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
             "mainClass": "qkarttests.Pages.Main",
             "projectName": "app"
         },
