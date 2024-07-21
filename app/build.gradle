@@ -39,9 +39,6 @@ dependencies {
     implementation group: 'org.apache.poi', name: 'poi-ooxml-schemas', version: '4.1.2'
 
 
-
-
-
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -57,7 +54,5 @@ application {
 }
 
 tasks.named('test') {
-    useTestNG() {
-        suites 'src/test/java/ordermoduletests/testng.xml'
-    }
+    useTestNG()
 }
