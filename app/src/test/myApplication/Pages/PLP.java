@@ -6,13 +6,15 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class PLP {
     WebDriver driver;
 
-    @FindBy
+    @FindBy(xpath = "(//div[@class = 'jsx-c3ec2b6b129f087d itemProductInnerNew'])[1]")
+    WebElement product;
 
     public PDP(WebDriver driver) {
         this.driver = driver;
@@ -35,7 +37,7 @@ public class PLP {
     }
 
     public void clickOnAnyProduct() {
-
+        product.click();
     }
 
 }

@@ -23,7 +23,6 @@ public class Signuppage {
     @FindBy(xpath = "//input[@aria-label = 'Digit 4']")
     WebElement otpfield4;
 
-
     public Signuppage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
