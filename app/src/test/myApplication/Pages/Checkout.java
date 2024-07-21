@@ -30,7 +30,6 @@ public class Checkout {
         PageFactory.initElements(driver, this);
     }
 
-
     public void fillDetails(String firstname, String lastname, long number, String address, String zipcode) {
         firstName.sendKeys(firstname);
         lastName.sendKeys(lastname);
@@ -38,5 +37,5 @@ public class Checkout {
         addressel.sendKeys(address);
         continuebutton.click();
     }
-    
+
 }
