@@ -53,7 +53,5 @@ application {
 }
 
 tasks.named('test') {
-    useTestNG() {
-        suites 'src/test/java/ordermoduletests/testng.xml'
-    }
+    useTestNG()
 }
