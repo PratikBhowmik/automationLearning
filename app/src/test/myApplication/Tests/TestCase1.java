@@ -18,4 +18,9 @@ public class TestCase1 {
         
     }
 
+    @BeforeTest
+    public void teardown() {
+        driver.quit();
+    }
+
 }

@@ -2,8 +2,7 @@
 <suite name="SuiteName">
     <test name="TestName">
         <classes>
-            <class name="myApplication.Tests.TestCase1"/>
-            <class name="myApplication.Tests.TestCase2"/>
+            <class name="src.test.myApplication.Tests.TestCase1"/>
         </classes>
     </test>
 </suite>
